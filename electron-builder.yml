@@ -1,0 +1,30 @@
+appId: ru.cz.clipboard
+productName: CZ Clipboard
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+asar: true
+asarUnpack:
+  - "**/*.node"
+extraResources:
+  - from: tessdata
+    to: tessdata
+    filter:
+      - "**/*"
+directories:
+  output: release
+win:
+  icon: assets/icon.png
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: CZ Clipboard
+portable:
+  artifactName: "${productName}-${version}-portable.exe"
